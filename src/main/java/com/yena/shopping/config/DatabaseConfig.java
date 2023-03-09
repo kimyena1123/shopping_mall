@@ -11,7 +11,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
 @Configuration
-@MapperScan(basePackages="com.yena.sns.*")
+@MapperScan(basePackages="com.yena.shopping.*")
 public class DatabaseConfig {
 
 	@Bean

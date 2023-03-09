@@ -1,0 +1,124 @@
+@charset "UTF-8";
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+.container{
+	display: flex;
+	flex-direction: column;
+	width: 100vw;
+	height: 100vh;
+}
+
+header{
+	width: 100%;
+	height: 7%;
+	background-color: #eee;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 20px;
+}
+header .logo{
+	border: 1px solid black;
+	width: 70px;
+	height: 70px;
+}
+header ul{
+	display: flex;
+	list-style: none;
+}
+header li{
+	margin: 0 5px;
+	padding-right: 10px;
+}
+header li:not(:last-child){
+	border-right: 1px solid black;
+}
+header a{
+	font-size: 18px;
+	color: black;
+	text-decoration: none;
+}
+section{
+	width: 100%;
+	height: 93%;
+}
+section .introduce{
+	padding-top: 50px;
+	width: 100%;
+	height: 10%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+section .introduce p{
+	font-size: 28px;
+}
+section .userInfo1{
+	width: 100%;
+	height: 52%;
+	background-color: white;
+	padding-top: 50px;
+	padding-left: 160px; 
+	padding-right: 160px;
+}
+.text1{
+	font-size: 22px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid black;
+}
+.info, .left, .right{
+	display: flex;
+}
+.leftLabel, .leftInput, .rightLabel, .rightInput{
+	display: flex;
+	flex-direction: column;
+}
+label{
+	font-size: 20px;
+	margin: 32px 0;
+}
+input{
+	margin: 24px 0;
+	margin-left: 50px;
+	width: 300px;
+	height: 40px;
+}
+.userInfo1 .info{
+	padding-top: 20px;
+	display: flex;
+	justify-content: space-between;
+}
+.checkBtn{
+	margin-left: 20px;
+	width: 100px;
+	height: 40px;
+}
+section .userInfo2{
+	width: 100%;
+	height: 38%;
+	background-color: white;
+	padding-left: 160px; 
+	padding-right: 160px;
+}
+#call{
+	margin-left: 15px;
+}
+#callInput input{
+	width: 700px;
+	height: 40px;
+	margin-top: 30px;
+}
+.sendDiv{
+	width: 100%;
+	display: flex;
+	justify-content: end;
+	
+}
+#register{
+	width: 200px;
+	height: 40px;
+}
