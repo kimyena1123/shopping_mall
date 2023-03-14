@@ -15,16 +15,8 @@
 <body>
 	<div class="container">
 	
-		<header>
-			<img src="#" class="logo">
-			<nav>
-				<ul>
-					<li><a href="#">로그인</a></li>
-					<li><a href="#">회원가입</a></li>
-					<li><a href="#">문의사항</a></li>
-				</ul>
-			</nav>
-		</header>
+		<c:import url="/WEB-INF/jsp/include/header.jsp" />
+		
 		<section>
 			<div class="introduce">
 				<p>이제 CloYeth의 회원이 되어볼까요?

@@ -3,6 +3,8 @@ package com.yena.shopping.user.dao;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import com.yena.shopping.user.model.User;
+
 @Repository
 public interface UserDAO {
 
@@ -22,5 +24,7 @@ public interface UserDAO {
 	//이메일 중복 검사
 	public int emailCheck(@Param("user_email") String user_email);
 	
-	
+	//로그인
+	public User signin(@Param("user_id") String user_id
+						, @Param("user_pw") String user_pw);
 }

@@ -56,4 +56,26 @@
 		WHERE
 			`user_email` = #{user_email}		
 	</select>
+	
+	<select id="signin"
+			parameterType="map"
+			resultType="com.yena.shopping.user.model.User">
+		SELECT
+			`id`
+			,`user_id`
+			,`user_pw`
+			,`user_name`
+			,`user_birth`
+			,`user_email`
+			,`user_address`
+			,`user_number`
+			,`createdAt`
+			,`updatedAt`
+		FROM
+			`user`
+		WHERE
+			`user_id` = #{user_id}
+		AND		
+			`user_pw` = #{user_pw}
+	</select>
 </mapper>

@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.yena.shopping.common.EncryptUtils;
 import com.yena.shopping.user.dao.UserDAO;
+import com.yena.shopping.user.model.User;
 
 @Service
 public class UserBO {
@@ -54,5 +55,13 @@ public class UserBO {
 		}else {
 			return false;
 		}
+	}
+	
+	//로그인 
+	public User signin(String user_id, String user_pw) {
+		//비밀번호 암호화
+		String encryptPassword = EncryptUtils.md5(user_pw);
+		
+		return userDAO.signin(user_id, encryptPassword);
 	}
 }

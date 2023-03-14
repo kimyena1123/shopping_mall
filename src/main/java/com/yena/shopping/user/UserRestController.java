@@ -3,6 +3,9 @@ package com.yena.shopping.user;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.yena.shopping.user.bo.UserBO;
+import com.yena.shopping.user.model.User;
 
 @RequestMapping("/user")
 @RestController
@@ -77,5 +81,32 @@ public class UserRestController {
 		}
 		
 		return email;
+	}
+	
+	//로그인 API
+	@PostMapping("/signin")
+	public Map<String, Boolean> signin(
+			@RequestParam("user_id") String user_id
+			,@RequestParam("user_pw") String user_pw
+			,HttpServletRequest request){
+	
+		User user = userBO.signin(user_id, user_pw);
+		
+		Map<String, Boolean> result = new HashMap<>();
+		
+		//조회가 안된다면 null
+		if(user != null) {
+			result.put("result", true);
+			
+			//세션 객체 얻어오기
+			HttpSession session = request.getSession();
+			
+			session.setAttribute("session_index", user.getId());
+			session.setAttribute("session_name", user.getUser_name());
+		}else {
+			result.put("result", false);
+		}
+		
+		return result;
 	}
 }
