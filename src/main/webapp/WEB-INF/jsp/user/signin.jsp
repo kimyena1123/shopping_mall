@@ -53,7 +53,7 @@
 					},
 					success:function(res){
 						if(res.result){
-							alert("로그인 성공");
+							location.href="/product/main/view";
 						}else{
 							alert("로그인 실패");
 						}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.yena.shopping.product.dao.ProductDAO">
+
+	<select id="selectProductInfo"
+			resultType="com.yena.shopping.product.model.Product">
+		SELECT
+			`id`
+			,`userId`
+			,`categoryId`
+			,`title`
+			,`price`
+			,`createdAt`
+			,`updatedAt`
+		FROM
+			`product`
+		ORDER BY
+			`id` DESC;
+			
+	</select>
+</mapper>

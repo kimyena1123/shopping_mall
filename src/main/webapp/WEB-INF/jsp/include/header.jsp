@@ -11,16 +11,23 @@
 	<nav>
 		<ul>
 			<c:choose>
-				<c:when test="${not empty session_index }">
-					<P>${session_name }님</P>
+				<c:when test="${not empty session_index && session_name ne '김예나' }">
+					<li><a>${session_name }님</a></li>
+					<li><a href="/user/signout">로그아웃</a>
 				</c:when>
-			
+				
+				<c:when test="${session_name eq '김예나'}"> 
+					<li><a>${session_name }님</a></li>
+					<li><a href="/product/productItem/view">상품관리</a></li>
+					<li><a href="#">주문내역</a></li>
+				</c:when>
+				
 				<c:otherwise>
-					<li><a href="#">로그인</a></li>
-					<li><a href="#">회원가입</a></li>
+					<li><a href="/user/signin/view">로그인</a></li>
+					<li><a href="/user/signup/view">회원가입</a></li>
 				</c:otherwise>
-				</c:choose>
-			<li><a href="#">문의사항</a></li>
+			</c:choose>
+					<li><a href="#">문의사항</a></li>
 		</ul>
 	</nav>
 </header>

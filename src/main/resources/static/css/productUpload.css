@@ -1,0 +1,87 @@
+@charset "UTF-8";
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-sizing;
+}
+
+.container{
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+section{
+	display: flex;
+	background-color: pink;
+}
+section aside{
+	border: 2px solid red;
+	width: 15%;
+	height: 100%;
+}
+
+section nav ul{
+	display: flex;
+	flex-direction: column;
+	padding-top: 70px;
+}
+aside nav ul li{
+	width: 80%;
+	border-bottom: 1px solid black;
+	padding: 20px 0;
+	padding-left: 30px;
+	
+}
+ul li a{
+	text-decoration: none;
+	color: black;
+}
+
+section .content{
+	border: 2px solid blue;
+	width: 85%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.content .productRegister{
+	width: 70%;
+	height: 90%;
+	border: 1px solid black;
+	display: flex;
+	flex-direction: column;
+}
+
+.productRegister .name{
+	width: 100%;
+	height: 10%;
+	border: 3px solid white;
+}
+.productRegister .productInputs{
+	width: 100%;
+	height: 90%;
+	border: 3px solid red;
+	display: flex;
+}
+.product_labels{
+	border: 1px solid black;
+	display: flex;
+	flex-direction: column;
+	width: 15%;
+}
+.product_labels label{
+	text-align: right;
+}
+.product_inputs{
+	border: 2px solid black;
+	display: flex;
+	flex-direction: column;
+	width: 85%;
+}
+.product_inputs input{
+	width: 600px;
+	height: 30px;
+}

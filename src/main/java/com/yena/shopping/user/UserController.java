@@ -1,5 +1,8 @@
 package com.yena.shopping.user;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,5 +23,18 @@ public class UserController {
 	public String signinView() {
 		
 		return "user/signin";
+	}
+	
+	//로그인 기능
+	@GetMapping("/signout")
+	public String signout(
+			HttpServletRequest request) {
+		
+		HttpSession session = request.getSession();
+		
+		session.removeAttribute("session_index");
+		session.removeAttribute("session_name");
+		
+		return "redirect:/user/signin/view";
 	}
 }

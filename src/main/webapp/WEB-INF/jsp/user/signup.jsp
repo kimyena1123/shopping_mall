@@ -41,7 +41,7 @@
 								<button type="button" id="idCheckBtn" class="checkBtn">중복확인</button>
 							</div>
 							<input type="password" id="user_pw" name="user_pw">
-							<input type="password" id="user_pwCehck" name="user_pwCheck">
+							<input type="password" id="user_pwCheck" name="user_pwCheck">
 						</div>
 					</div>
 					
