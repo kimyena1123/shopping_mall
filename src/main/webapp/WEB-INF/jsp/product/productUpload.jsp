@@ -33,7 +33,25 @@
 			<div class="content">
 				<div class="productRegister">
 					<div class="name">
-						<p>상품 등록</p>
+					<c:set var="productId" value="${ productCount + 2 }"/>
+						<p><c:out value="${productId}" />번째 상품 등록</p>
+						<div class="black">
+							
+							<c:forEach var="product" items="${productList }" varStatus="status">
+								
+								<c:choose>
+									<c:when test="${status.first == true }">
+									<div class="productIdDiv" data-product-id=${product.id }>${product.id }</div>
+									</c:when>
+									<c:otherwise>
+									<div>아님 ${product.id }</div>
+									</c:otherwise>
+								</c:choose>
+								
+								
+							</c:forEach>
+							
+						</div>
 					</div>
 					
 					<div class="productInputs">
@@ -54,10 +72,13 @@
 						<div class="product_inputs">
 							<select name="product_category" id="product_category">
 								<option value="">--Please choose an option--</option>
-								<option value="티셔츠">티셔츠</option>
-								<option value="바지">바지</option>
-								<option value="치마">치마</option>
-								<option value="원피스">원피스</option>
+								<c:forEach var="category" items="${categoryList }">
+									<option value="${category.id }" 
+											data-category-id="${category.id }" 
+											class="option_category">
+												${ category.type }
+									</option>
+								</c:forEach>
 							</select>
 							
 							<input type="text" id="product_title" name="product_title" placeholder="상품명">
@@ -66,10 +87,14 @@
 							<input type="text" id="product_color" name="product_color" placeholder="색상">
 							<input type="text" id="product_desc" name="product_desc" placeholder="제품설명">
 							
-							<input type="file" id="product_imgs_file1" name="product_imgs_file1">
-							<input type="file" id="product_imgs_file2" name="product_imgs_file2">
-							<input type="file" id="product_imgs_file3" name="product_imgs_file3">
-							<input type="file" id="product_imgs_file4" name="product_imgs_file4">
+							<div class="img_file">
+								<input type="file" id="product_imgs_file1" name="product_imgs_file1">
+								<input type="file" id="product_imgs_file2" name="product_imgs_file2">
+								<input type="file" id="product_imgs_file3" name="product_imgs_file3">
+								<input type="file" id="product_imgs_file4" name="product_imgs_file4">
+							</div>
+							
+							<button type="button" id="fileBtn">이미지버튼</button>
 						</div>
 					</div>
 				</div>
@@ -79,22 +104,132 @@
 	
 	<script>
 	$(document).ready(function(){
+		
+		$("#fileBtn").on("click", function(){
+			
+			// 폼 객체 생성
+			let formData = new FormData();
+			formData.append('product_imgs_file1', $("#product_imgs_file1")[0].files[0]);			
+			formData.append('product_imgs_file2', $("#product_imgs_file2")[0].files[0]);			
+			formData.append('product_imgs_file3', $("#product_imgs_file3")[0].files[0]);			
+			formData.append('product_imgs_file4', $("#product_imgs_file4")[0].files[0]);			
+			
+
+			$.ajax({
+				type: 'post',
+				url: '/product_imgs/insert',
+				data:formData,
+				enctype: "multipart/form-data",
+				processData:false,
+				contentType:false,
+				success:function(res){
+					if(res.result){
+						alert("image insert succeses");
+						
+					}else{
+						alert("image insert fail");
+					}
+				},
+				error:function(err){
+					alert("product_imgs insert error");
+				}
+			}) // product_imgs ajax
+		
+			
+		})
+		
 		//상품등록
 		$("#registerProduct").on("click", function(){
-			let product_category = $("#product_category").val();
+			let categoryId = $("#product_category").val();
 			let product_title = $("#product_title").val();
 			let product_price = $("#product_price").val();
 			let product_size = $("#product_size").val();
 			let product_color = $("#product_color").val();
 			let product_desc = $("#product_desc").val();
 			
+			let selectCategory = $("#product_category :selected").text();
+			let product_category = $.trim(selectCategory);
+			
+			let last_productId = $(".productIdDiv").data("productId");
+			let productId = last_productId + 1;
+			
+			
+
+			// 폼 객체 생성
+			let formData = new FormData();
+			
+			formData.append('productId', productId);
+			formData.append('product_imgs_file1', $("#product_imgs_file1")[0].files[0]);			
+			formData.append('product_imgs_file2', $("#product_imgs_file2")[0].files[0]);			
+			formData.append('product_imgs_file3', $("#product_imgs_file3")[0].files[0]);			
+			formData.append('product_imgs_file4', $("#product_imgs_file4")[0].files[0]);			
+			
+			
 			$.ajax({
 				type: 'post',
-				url: '/product/upload',
-				data:{
-					"product_category"
+				url: '/product/insert',
+				data: {
+					"categoryId":categoryId,
+					"title":product_title,
+					"price":product_price,
+				},
+				success:function(res){
+					
+					if(res.result){
+						$.ajax({
+							type:'post',
+							url: '/product_detail/insert',
+							data:{
+								"productId":productId,
+								"color":product_color,
+								"size":product_size,
+								"desc":product_desc,
+							},
+							success:function(res){
+								if(res.result){
+									alert("product_detail insert success");
+									
+									$.ajax({
+										type: 'post',
+										url: '/product_imgs/insert',
+										data:formData,
+										enctype: "multipart/form-data",
+										processData:false,
+										contentType:false,
+										success:function(res){
+											if(res.result){
+												alert("image insert succeses");
+												
+											}else{
+												alert("image insert fail");
+											}
+										},
+										error:function(err){
+											alert("product_imgs insert error");
+										}
+									}) // product_imgs ajax
+									
+								}else{
+									alert('product_deatail insert fail');
+								}
+							},
+							error:function(err){
+								alert("product_detail insert error");
+							}
+						}) // product_detail insert ajax
+						
+						
+						
+						
+					}else{
+						alert("product insert 실패")
+					}
+				},
+				error:function(err){
+					alert("product_insert error");
 				}
 			})
+			
 			
 			
 		})

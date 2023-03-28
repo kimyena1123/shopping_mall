@@ -19,4 +19,17 @@
 		WHERE
 			id = #{id}
 	</select>
+	
+	<select id="selectCategory"
+			resultType="com.yena.shopping.category.model.Category">
+		SELECT
+			`id`
+			,`type`
+			,`createdAt`
+			,`updatedAt`
+		FROM 
+			`category`
+	</select>
+	
+	
 </mapper>

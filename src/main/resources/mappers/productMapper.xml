@@ -22,4 +22,39 @@
 			`id` DESC;
 			
 	</select>
+	
+	<insert id="product_insert"
+			parameterType="map">
+		INSERT INTO
+			`product`
+		(
+			`userId`
+			,`categoryId`
+			,`title`
+			,`price`
+			,`createdAt`
+			,`updatedAt`
+		)
+		VALUE
+		(
+			#{userId}
+			,#{categoryId}
+			,#{title}
+			,#{price}
+			,now()
+			,now()
+		)		
+	</insert>
+	
+	<select id="sendProductCount"
+			resultType="int">
+		SELECT
+			count(1)
+		FROM
+			`product`	
+	</select>
+	
+	
+			
+	
 </mapper>

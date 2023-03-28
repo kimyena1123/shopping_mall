@@ -31,18 +31,23 @@
 			</aside>
 			
 			<div class="content">
-				<nav>
-					
-				</nav>
-				
-				<c:forEach var="product" items="${product_OtherList }">
-					
-					<div class="box">
-					<p>${product.title }</p>
-					<p>${product.price }</p>
-					<p>${product.type }</p>
-					</div>
-				</c:forEach>
+				<div class="nav_category">
+					<ul class="categorys">
+						<c:forEach var="category" items="${categoryList }">
+							<li><a href="#">${category.type }</a></li>
+						</c:forEach>
+					</ul>
+				</div>
+			
+				<div class="item_list">
+					<c:forEach var="product" items="${product_OtherList }">
+						<div class="show_items">
+							<p>${product.title }</p>
+							<p>${product.price }</p>
+							<p>${product.type }</p>
+						</div>
+					</c:forEach>
+				</div>
 			</div>
 		</section>
 	</div>

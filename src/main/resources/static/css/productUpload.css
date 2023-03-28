@@ -85,3 +85,7 @@ section .content{
 	width: 600px;
 	height: 30px;
 }
+.black{
+	border: 1px solid black;
+	display: none;
+}

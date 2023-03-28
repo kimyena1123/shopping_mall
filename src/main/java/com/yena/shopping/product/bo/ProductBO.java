@@ -55,6 +55,22 @@ public class ProductBO {
 	}
 	
 	
+	//관리자 product insert
+	public int product_insert(int userId, int categoryId
+							,String title, String price) {
+		return productDAO.product_insert(userId, categoryId, title, price);
+	}
+	
+	//현재 product 개수 send
+	public int productCount() {
+		return productDAO.sendProductCount();
+	}
+	
+	//productId를 보내주기 위함
+	public List<Product> sendProductId(){
+		return productDAO.selectProductInfo();
+	}
+	
 	
 	
 	

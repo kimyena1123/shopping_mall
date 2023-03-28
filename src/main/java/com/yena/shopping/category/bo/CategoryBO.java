@@ -1,5 +1,7 @@
 package com.yena.shopping.category.bo;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -8,6 +10,7 @@ import com.yena.shopping.category.model.Category;
 
 @Service
 public class CategoryBO {
+	
 	@Autowired
 	private CategoryDAO categoryDAO;
 
@@ -17,4 +20,10 @@ public class CategoryBO {
 	public Category getCategoryById(int id) { // 한 행에 대한 정보
 		return categoryDAO.selectCategoryById(id);
 	}
+	
+	//모든 행의 category 정보 show
+	public List<Category> selectCategory(){
+		return categoryDAO.selectCategory();
+	}
+	
 }

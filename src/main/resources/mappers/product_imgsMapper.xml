@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.yena.shopping.product.product_imgs.dao.Product_imgsDAO">
+	<insert id="insertProductImgs"
+			parameterType="map">
+		INSERT INTO
+			`product_imgs`
+		(
+			`productId`
+			,`product_img`
+			,`createdAt`
+			,`updatedAt`
+		)
+		VALUES
+		(
+			#{productId}
+			,#{imagePath1}
+			,now()
+			,now()
+		),
+		(
+			#{productId}
+			,#{imagePath2}
+			,now()
+			,now()
+		),
+		(
+			#{productId}
+			,#{imagePath3}
+			,now()
+			,now()
+		),
+		(
+			#{productId}
+			,#{imagePath4}
+			,now()
+			,now()
+		)
+	</insert>
+</mapper>

@@ -1,9 +1,7 @@
-package com.yena.shopping.product;
+package com.yena.shopping.product.product_detail;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,42 +9,33 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.yena.shopping.product.bo.ProductBO;
-@RequestMapping("/product")
+import com.yena.shopping.product.product_detail.bo.Product_detailBO;
+
+@RequestMapping("/product_detail")
 @RestController
-public class ProductRestController {
+public class ProductDetailRestController {
 	
 	@Autowired
-	private ProductBO productBO;
+	private Product_detailBO product_detailBO;
+
 	
 	@PostMapping("/insert")
-	public Map<String, Boolean> product_insert(
-			HttpSession session
-			,@RequestParam("categoryId") int categoryId
-			,@RequestParam("title") String title
-			,@RequestParam("price") String price){
+	public Map<String, Boolean> product_detailInsert(
+			@RequestParam("productId") int productId
+			,@RequestParam("color") String color
+			,@RequestParam("size") String size
+			,@RequestParam("desc") String desc){
 		
-		int userId = (Integer)session.getAttribute("session_index");
-		
-		int count = productBO.product_insert(userId, categoryId, title, price);
+		int count = product_detailBO.product_detailInsert(productId, color, size, desc);
 		
 		Map<String, Boolean> result = new HashMap<>();
 		
 		if(count == 1) {
 			result.put("result", true);
-			System.out.println();
 		}else {
 			result.put("result", false);
 		}
 		
 		return result;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 }
