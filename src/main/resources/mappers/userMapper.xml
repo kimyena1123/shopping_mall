@@ -78,4 +78,24 @@
 		AND		
 			`user_pw` = #{user_pw}
 	</select>
+	
+	<select id="sendUserInfoById"
+			parameterType="int"
+			resultType="com.yena.shopping.user.model.User">
+		SELECT
+			`id`
+			,`user_id`
+			,`user_pw`
+			,`user_name`
+			,`user_birth`
+			,`user_email`
+			,`user_address`
+			,`user_number`
+			,`createdAt`
+			,`updatedAt`
+		FROM
+			`user`
+		WHERE
+			`id` = #{id}
+	</select>
 </mapper>

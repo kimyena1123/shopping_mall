@@ -1,0 +1,211 @@
+@charset "UTF-8";
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-sizing;
+}
+
+.container{
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+section{
+	display: flex;
+}
+section .imgs{
+	width: 70%;
+	height: 100%;
+	border: 1px solid black;
+}
+.displayImg{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	overflow-y: scroll;
+}
+.displayImg img{
+	width: 49.5%;
+	height: 425px;
+	border: 1px solid black;
+	margin-right: 3px;
+}
+section .productInfo{
+	width: 30%;
+	height: 100%;
+	border: 1px solid black;
+	padding-top: 50px;
+	padding-left: 40px;
+}
+
+section .productInfo .titleName{
+	width: 80%;
+	font-size: 40px;
+	font-weight: 600;
+	border-bottom: 1px solid #bbb;
+	padding-bottom: 20px;
+	margin-bottom: 40px;
+}
+section .productInfo .showInfo{
+	font-size: 20px;
+	margin: 7px 0;
+}
+section .productInfo .showInfo span{
+	color: red;
+}
+input{
+	margin: 0;
+	padding: 0;
+	width: 200px;
+	height: 30px;
+}
+#order_detailInfo{
+	width: 80%;
+	padding-bottom: 50px;
+	border-bottom: 1px solid #bbb;
+}
+
+section .productInfo .order_detail_in{
+	width: 100%;
+	text-align: right;
+	padding-right: 150px;
+	padding-top: 10px;
+}
+.total_price{
+	font-size: 25px;
+}
+.text{
+	display: flex;
+	justify-content: space-between;
+}
+#review{
+	padding-top: 5px;
+	color: black;
+}
+section .productInfo .order_detail_in .orderBtn{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: end;
+	margin-top: 20px;
+	padding-top: 10px;
+}
+section .productInfo .order_detail_in .orderBtn button{
+	width: 100%;
+	height: 60px;
+	margin-left: 10px;
+	border-radius: 25px;
+	margin-bottom: 17px;
+}
+.orderBtn #basket{
+	background-color: white;
+}
+.productExplain{
+	margin-top: 30px;
+}
+.productExplain{
+	border: 1px solid #bbb;
+	width: 80%;
+	height: 150px;
+}
+
+
+section .showReview{
+	width: 70%;
+	height: 100%;
+	overflow-y: scroll;
+}
+
+section .showReview .wirteReview{
+	width: 100%;
+	height: 7%;
+	display: flex;
+	align-items: center;
+}
+.writeDiv{
+	width: 100px;
+	height: 35px;
+	border: 1px solid black;
+	margin-left: 15px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 30px;
+}
+a{
+	text-decoration: none;
+	color: black;
+}
+section .showReview .imgReview{
+	width: 100%;
+	height: 93%;
+}
+.reviews{
+	width: 100%;
+	height: 100%;
+}
+.selectReview{
+	display: flex;
+	flex-wrap: wrap;
+	padding-left: 50px;
+	padding-top: 25px;
+}
+.reviweDivs{
+	border: 5px solid black;
+	height: 360px;
+	margin: 10px 10px;
+}
+
+.imgReview a{
+	border: 3px solid red;
+	width: 30%;
+	margin: 10px;
+}
+.complete{
+	border: 1px solid black;
+	padding: 10px 5px;
+	margin: 12px 0;
+}
+.write{
+	
+	width: 95%;
+	height: 50%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+section .wirteReview{
+	width: 70%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+section .reviewImgs{
+	width: 95%;
+	height: 40%;
+}
+.fourImgs{
+	height: 10%;
+}
+.inputFile{
+	display: flex;
+	justify-content: space-around;
+	height: 10%;
+}
+.showImgs{
+	width: 100%;
+	height: 80%;
+	display: flex;
+	justify-content: space-around;
+}
+.exampleImg{
+	border: 1px solid black;
+	width: 20%;
+}
+.exampleImg img{
+	width: 100%;
+	height: 100%;
+}

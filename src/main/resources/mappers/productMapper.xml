@@ -54,6 +54,22 @@
 			`product`	
 	</select>
 	
+	<select id="readProduct"
+			resultType="com.yena.shopping.product.model.Product">
+		SELECT
+			`id`
+			,`userId`
+			,`categoryId`
+			,`title`
+			,`price`
+			,`createdAt`
+			,`updatedAt`
+		FROM
+			`product`
+		WHERE
+			`id` = #{id}
+	</select>
+	
 	
 			
 	

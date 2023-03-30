@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.yena.shopping.product.review.review_imgs.dao.Review_imgsDAO">
+
+	<select id="sendReview_imgs"
+			resultType="com.yena.shopping.product.review.review_imgs.model.Review_imgs">
+		SELECT
+			`id`
+			,`reviewId`
+			,`review_img`
+			,`createdAt`
+			,`updatedAt`
+		FROM
+			`review_imgs`
+		WHERE
+			`reviewId` = #{reviewId}		
+	</select>
+	
+	<insert id="insertReview_imgs"
+			parameterType="map">
+		INSERT INTO
+			`review_imgs`
+		(
+			`reviewId`
+			,`review_img`
+			,`createdAt`
+			,`updatedAt`
+		)
+		VALUES
+		(
+			#{review_id}
+			,#{imagePath1}
+			,now()
+			,now()
+		),
+		(
+			#{review_id}
+			,#{imagePath2}
+			,now()
+			,now()
+		),
+		(
+			#{review_id}
+			,#{imagePath3}
+			,now()
+			,now()
+		),
+		(
+			#{review_id}
+			,#{imagePath4}
+			,now()
+			,now()
+		)
+	</insert>
+
+</mapper>

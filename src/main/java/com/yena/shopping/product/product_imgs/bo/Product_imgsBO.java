@@ -1,11 +1,14 @@
 package com.yena.shopping.product.product_imgs.bo;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.yena.shopping.common.FileManagerService;
 import com.yena.shopping.product.product_imgs.dao.Product_imgsDAO;
+import com.yena.shopping.product.product_imgs.model.Product_imgs;
 
 @Service
 public class Product_imgsBO {
@@ -29,5 +32,16 @@ public class Product_imgsBO {
 		
 		return product_imgsDAO.insertProductImgs(productId, imagePath1, imagePath2, imagePath3, imagePath4);
 		
+	}
+	
+	//product 테이블의 id를 기반으로 조회
+	public List<Product_imgs> getProductImgs(int id) {
+		return product_imgsDAO.readProductImgs(id);
+	}
+	
+	public List<Product_imgs> showImgs(int productId){
+		List<Product_imgs> imgsList = product_imgsDAO.showImgs(productId);
+		
+		return imgsList;
 	}
 }

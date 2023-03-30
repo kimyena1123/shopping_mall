@@ -71,7 +71,10 @@ public class ProductBO {
 		return productDAO.selectProductInfo();
 	}
 	
-	
+	//관리자가 누른 상품의 디테일 보기
+	public Product getProduct(int id) {
+		return productDAO.readProduct(id);
+	}
 	
 	
 	

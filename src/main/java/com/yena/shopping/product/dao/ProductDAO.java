@@ -22,5 +22,8 @@ public interface ProductDAO {
 	//현재 product의 개수 send
 	public int sendProductCount();
 	
+	//product 테이블의 id를 기반으로 product를 조회
+	public Product readProduct(@Param("id") int id);
+	
 	
 }

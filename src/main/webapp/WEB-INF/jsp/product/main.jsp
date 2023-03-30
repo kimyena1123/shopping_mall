@@ -19,7 +19,7 @@
 		<c:import url="/WEB-INF/jsp/include/header.jsp" />
 		
 		<section>
-		ad
+		<a href="/product/showItemList">상품 더보기</a>
 		</section>
 	</div>
 </body>

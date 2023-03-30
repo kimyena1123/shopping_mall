@@ -1,6 +1,7 @@
 package com.yena.shopping.product.product_imgs;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.yena.shopping.product.product_imgs.bo.Product_imgsBO;
+import com.yena.shopping.product.product_imgs.model.Product_imgs;
 
 @RequestMapping("/product_imgs")
 @RestController
@@ -47,4 +49,7 @@ public class product_imgsRestController {
 		
 		return result;
 	}
+	
+	
+
 }

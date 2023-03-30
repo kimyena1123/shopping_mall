@@ -29,4 +29,21 @@
 		)
 				
 	</insert>
+	
+	<select id="readProduct"
+			parameterType="int"
+			resultType="com.yena.shopping.product.product_detail.model.Product_detail">
+		SELECT
+			`id`
+			,`productId`
+			,`color`
+			,`size`
+			,`desc`
+			,`createdAt`
+			,`updatedAt`
+		FROM
+			`product_detail`
+		WHERE
+			`productId` = #{id}
+	</select>
 </mapper>

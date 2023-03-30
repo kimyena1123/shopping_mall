@@ -13,6 +13,8 @@
 			<c:choose>
 				<c:when test="${not empty session_index && session_name ne '김예나' }">
 					<li><a>${session_name }님</a></li>
+					<li><a href="#">홈</a></li>
+					<li><a href="#">장바구니</a</li>
 					<li><a href="/user/signout">로그아웃</a>
 				</c:when>
 				
@@ -20,6 +22,7 @@
 					<li><a>${session_name }님</a></li>
 					<li><a href="/product/productItem/view">상품관리</a></li>
 					<li><a href="#">주문내역</a></li>
+					<li><a href="/user/signout">로그아웃</a></li>
 				</c:when>
 				
 				<c:otherwise>
@@ -27,7 +30,6 @@
 					<li><a href="/user/signup/view">회원가입</a></li>
 				</c:otherwise>
 			</c:choose>
-					<li><a href="#">문의사항</a></li>
 		</ul>
 	</nav>
 </header>

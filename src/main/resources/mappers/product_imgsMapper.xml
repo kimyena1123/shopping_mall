@@ -41,4 +41,34 @@
 			,now()
 		)
 	</insert>
+	
+	<select id="readProductImgs"
+			parameterType="int"
+			resultType="com.yena.shopping.product.product_imgs.model.Product_imgs">
+		SELECT
+			`id`
+			,`productId`
+			,`product_img`
+			,`createdAt`
+			,`updatedAt`
+		FROM
+			`product_imgs`
+		WHERE
+			`productId` = #{id}
+	</select>
+	
+	<select id="showImgs"
+			parameterType="int"
+			resultType="com.yena.shopping.product.product_imgs.model.Product_imgs">
+		SELECT
+			`id`
+			,`productId`
+			,`product_img`
+			,`createdAt`
+			,`updatedAt`
+		FROM
+			`product_imgs`
+		WHERE
+			`productId` = #{productId`		
+	</select>
 </mapper>

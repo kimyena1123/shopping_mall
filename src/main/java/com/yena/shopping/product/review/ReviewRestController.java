@@ -1,7 +1,6 @@
-package com.yena.shopping.product;
+package com.yena.shopping.product.review;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -12,43 +11,33 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.yena.shopping.product.bo.ProductBO;
-import com.yena.shopping.product.product_imgs.model.Product_imgs;
-@RequestMapping("/product")
+import com.yena.shopping.product.review.bo.ReviewBO;
+
+@RequestMapping("/review")
 @RestController
-public class ProductRestController {
+public class ReviewRestController {
 	
 	@Autowired
-	private ProductBO productBO;
+	private ReviewBO reviewBO;
 	
-	@PostMapping("/insert")
-	public Map<String, Boolean> product_insert(
+	//review 작성 API
+	@PostMapping("/write")
+	public Map<String, Boolean> insertReview(
 			HttpSession session
-			,@RequestParam("categoryId") int categoryId
-			,@RequestParam("title") String title
-			,@RequestParam("price") String price){
+			,@RequestParam("productId") int productId
+			,@RequestParam("comment") String comment){
 		
 		int userId = (Integer)session.getAttribute("session_index");
-		
-		int count = productBO.product_insert(userId, categoryId, title, price);
+		int count = reviewBO.insertReview(userId, productId, comment);
 		
 		Map<String, Boolean> result = new HashMap<>();
 		
 		if(count == 1) {
 			result.put("result", true);
-			System.out.println();
 		}else {
 			result.put("result", false);
 		}
 		
 		return result;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 }

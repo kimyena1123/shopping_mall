@@ -199,7 +199,7 @@
 										success:function(res){
 											if(res.result){
 												alert("image insert succeses");
-												
+												location.href="/product/productItem/view"; 
 											}else{
 												alert("image insert fail");
 											}

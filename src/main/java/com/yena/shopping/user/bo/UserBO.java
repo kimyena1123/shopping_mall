@@ -64,4 +64,9 @@ public class UserBO {
 		
 		return userDAO.signin(user_id, encryptPassword);
 	}
+	
+	//user 테이블의 id를 받아서 그 해당 id(행)의 정보 가져오기
+	public User sendUserInfoById(int id) {
+		return userDAO.sendUserInfoById(id);
+	}
 }

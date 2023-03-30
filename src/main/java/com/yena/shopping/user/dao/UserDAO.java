@@ -27,4 +27,7 @@ public interface UserDAO {
 	//로그인
 	public User signin(@Param("user_id") String user_id
 						, @Param("user_pw") String user_pw);
+	
+	//user 테이블의 id를 받아서 해당 id의 정보(행) 보내기
+	public User sendUserInfoById(@Param("id") int id);
 }

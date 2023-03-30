@@ -19,18 +19,8 @@
 		<c:import url="/WEB-INF/jsp/include/header.jsp" />
 		
 		<section>
-			<aside>
-				<nav>
-					<ul>
-						<li><a href="/product/productItem/view">상품 목록</a></li>
-						<li><a href="/product/upload/view">상품 등록</a></li>
-						<li><a href="#">상품 수정</a></li>
-						<li><a href="#">카테고리 수정</a></li>
-					</ul>
-				</nav>
-			</aside>
 			
-			<div class="content">
+			<div class="content" id="content2">
 				<div class="nav_category">
 					<ul class="categorys">
 						<c:forEach var="category" items="${categoryList }">
@@ -39,10 +29,10 @@
 					</ul>
 				</div>
 			
-				<div class="item_list">
+				<div class="item_list" id="item_list2">
 					<c:forEach var="product" items="${product_OtherList }">
 						<a href="/product_detail/detail/view?id=${product.id }">
-							<div class="show_items" data-product-id="${product.id }">
+							<div class="show_items" id="show_items2" data-product-id="${product.id }">
 								<c:set var="productId" value="${product.id }" />
 								<p>${product.title }</p>
 								<p>${product.price }</p>

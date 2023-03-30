@@ -25,7 +25,7 @@ public class UserController {
 		return "user/signin";
 	}
 	
-	//로그인 기능
+	//로그아웃 기능
 	@GetMapping("/signout")
 	public String signout(
 			HttpServletRequest request) {
@@ -37,4 +37,5 @@ public class UserController {
 		
 		return "redirect:/user/signin/view";
 	}
+	
 }
