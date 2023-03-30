@@ -14,7 +14,7 @@
 				<c:when test="${not empty session_index && session_name ne '김예나' }">
 					<li><a>${session_name }님</a></li>
 					<li><a href="#">홈</a></li>
-					<li><a href="#">장바구니</a</li>
+					<li><a href="/basket/totalOrder">장바구니</a</li>
 					<li><a href="/user/signout">로그아웃</a>
 				</c:when>
 				

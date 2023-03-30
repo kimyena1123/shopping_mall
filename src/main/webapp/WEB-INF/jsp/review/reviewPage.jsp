@@ -67,7 +67,9 @@
 					</div>
 					
 					<div class="orderBtn">
-						<button type="button" id="basket">장바구니</button>
+							<button type="button" id="basket">
+								장바구니
+							</button>
 						<button type="submit">주문하기</button>
 					</div>
 				</div>
@@ -100,6 +102,56 @@
 			$(".total_price").text(total_price + "원");
 			
 		})
+		
+		$("#basket").on("click", function(){
+			let productId = '<c:out value="${productId}"/>';
+			let count = $("#order_detail_count").val();
+			
+			let original_price = '<c:out value="${current_price}"/>';
+			let original_priceString = original_price.split("원");
+			let priceNumber = parseInt(original_priceString);
+			
+			let price = count * priceNumber;
+			
+			$.ajax({
+				type: 'post',
+				url: '/basket/isBasket',
+				data: {
+					"productId":productId
+				},
+				success:function(res){
+					if(res.result){
+						$.ajax({
+							type: 'post',
+							url: '/basket/insert',
+							data: {
+								"productId":productId,
+								"count":count,
+								"price":price,
+							},
+							success:function(res){
+								if(res.result){
+									alert("장바구니 담기 성공");
+								}else{
+									alert("장바구니 다시 시도해주세요");
+								}
+							},
+							error:function(err){
+								alert("shopping basket insert error");
+							}
+						})
+					}else{
+						alert("해당 제품이 이미 장바구니에 있습니다.");
+					}
+				},
+				error:function(err){
+					alert("isBasket error");
+				}
+			})
+		})
+		
+		
+		
 	})
 </script>
 </html>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.yena.shopping.basket.dao.BasketDAO">
+
+	<insert id="insertBasket"
+			parameterType="map">
+		INSERT INTO
+			`shopping_basket`
+		(
+			`userId`
+			,`productId`
+			,`count`
+			,`price`
+			,`createdAt`
+			,`updatedAt`
+		)
+		VALUE
+		(
+			#{userId}
+			,#{productId}
+			,#{count}
+			,#{price}
+			,now()
+			,now()
+		)	
+	</insert>
+	
+	<select id="isBasket"
+			parameterType="int"
+			resultType="int">
+		SELECT
+			count(1)
+		FROM
+			`shopping_basket`
+		WHERE
+			`productId` = #{productId}	
+		AND
+			`userId` = #{userId}	
+	</select>
+	
+	<select id="selectBasketInfoById"
+			parameterType="int"
+			resultType="com.yena.shopping.basket.model.Basket">
+		SELECT
+			`id`
+			,`userId`
+			,`productId`
+			,`count`
+			,`price`
+			,`createdAt`
+			,`updatedAt`
+		FROM
+			`shopping_basket`
+		WHERE
+			`userId` = #{userId}
+	</select>
+	
+	<select id="selectCountList"
+			resultType="int"
+			parameterType="int">
+		SELECT
+			count(1)
+		FROM
+			`shopping_basket`
+		WHERE
+			`userId` = #{userId}		
+	</select>
+</mapper>

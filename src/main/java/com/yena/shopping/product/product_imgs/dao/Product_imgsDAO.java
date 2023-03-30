@@ -24,5 +24,7 @@ public interface Product_imgsDAO {
 	//item.jsp에서 목록을 누르면 해당 상품의 디테일 페이지에 들어갈 사진들을 select
 	public List<Product_imgs> showImgs(@Param("productId") int productId);
 	
+	//productId가 동일한 여러 사진 중 제일 최근 LIMIT 1 사진 정보 넘기기
+	public Product_imgs sendProductImgsInfo(@Param("productId") int productId);
 	
 }

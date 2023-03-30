@@ -44,4 +44,18 @@ public class Product_imgsBO {
 		
 		return imgsList;
 	}
+	
+	
+	//productId가 동일한 여러 사진 중 제일 최근 LIMIT 1 사진 정보 넘기기
+	public Product_imgs sendProductImgsInfo(int productId) {
+		return product_imgsDAO.sendProductImgsInfo(productId);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 }

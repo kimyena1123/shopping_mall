@@ -71,4 +71,19 @@
 		WHERE
 			`productId` = #{productId`		
 	</select>
+	
+	<select id="sendProductImgsInfo"
+			resultType="com.yena.shopping.product.product_imgs.model.Product_imgs">
+		SELECT
+			`id`
+			,`productId`
+			,`product_img`
+			,`createdAt`
+			,`updatedAt`
+		FROM
+			`product_imgs`
+		WHERE
+			`productId` = #{productId}
+		LIMIT 1;
+	</select>
 </mapper>
