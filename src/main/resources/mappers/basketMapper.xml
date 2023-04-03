@@ -69,4 +69,30 @@
 		WHERE
 			`userId` = #{userId}		
 	</select>
+	
+	<select id="sendBasketInfo"
+			resultType="com.yena.shopping.basket.model.Basket">
+		SELECT
+			`id`
+			,`userId`
+			,`productId`
+			,`count`
+			,`price`
+			,`createdAt`
+			,`updatedAt`
+		FROM	
+			`shopping_basket`
+		WHERE
+			`userId` = #{userId}	
+	</select>
+	
+	<delete id="basketDelete"
+			parameterType="int">
+		DELETE FROM
+			`shopping_basket`
+		WHERE
+			`id` = #{basketId}
+		AND 
+			`userId` = #{userId}
+	</delete>
 </mapper>

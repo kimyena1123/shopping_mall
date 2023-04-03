@@ -14,21 +14,18 @@
 }
 section{
 	display: flex;
-	background-color: pink;
 }
 section aside{
-	border: 2px solid red;
+	border: 1px solid black;
 	width: 15%;
 	height: 100%;
 }
 section .content{
-	border: 2px solid blue;
 	width: 85%;
 	height: 100%;
 }
 
 section #content2{
-	border: 2px solid blue;
 	width: 100%;
 	height: 100%;
 }
@@ -40,7 +37,6 @@ section nav ul{
 }
 aside nav ul li{
 	width: 80%;
-	border-bottom: 1px solid black;
 	padding: 20px 0;
 	padding-left: 30px;
 	
@@ -51,10 +47,10 @@ ul li a{
 }
 .content .nav_category{
 	height: 8%;
-	border: 4px solid blue;
 	display: flex;
 	align-items: center;
 	width: 100%;
+	border-bottom: 1px solid #bbb;
 }
 .categorys{
 	display: flex;
@@ -64,20 +60,18 @@ ul li a{
 }
 .categorys li a{
 	font-size: 20px;
-	
 }
 .item_list{
 	height: 90%;
-	border: 4px solid black;
 	overflow-y: scroll;
 	display: flex;
 	flex-wrap: wrap;
 	padding-left: 40px;
+	padding-top: 50px;
 }
 #item_list2{
 	width: 100%;
 	height: 90%;
-	border: 4px solid black;
 	overflow-y: scroll;
 	display: flex;
 	flex-wrap: wrap;
@@ -85,14 +79,24 @@ ul li a{
 }
 
 .show_items{
-	width: 280px;
-	height: 330px;
-	border: 4px solid red;
-	margin: 30px 40px;
+	width: 350px;
+	height: 350px;
+	border: 2px solid black;
+	margin: 0 10px;
 }
 #show_items2{
-	width: 280px;
-	height: 330px;
-	border: 4px solid red;
-	margin: 30px 60px;
+	width: 350px;
+	height: 350px;
+	border: 2px solid black;
+}
+
+.productImg{
+	border: 1px solid black;
+	width: 100%;
+	height: 75%;
+	
+}
+.productImg img{
+	width: 100%;
+	height: 100%;
 }

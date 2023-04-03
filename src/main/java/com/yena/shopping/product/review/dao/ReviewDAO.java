@@ -11,7 +11,7 @@ import com.yena.shopping.product.review.model.Review;
 public interface ReviewDAO {
 
 	//올린 모든 리뷰들 가져오기
-	public List<Review> selectAllReview();
+	public List<Review> selectAllReview(@Param("productId") int productId);
 	
 	//review table insert 
 	public int insertReview(
@@ -21,4 +21,6 @@ public interface ReviewDAO {
 	
 	//productId를 가져와서 review 테이블의 가장 마지막 행의 id 정보 가져오기
 	public Review getReviewId(@Param("productId") int productId);
+	
+	public Review sendReviewInfo(@Param("reviewId") int reviewId);
 }

@@ -11,6 +11,8 @@ import com.yena.shopping.category.model.Category;
 import com.yena.shopping.product.dao.ProductDAO;
 import com.yena.shopping.product.model.Product;
 import com.yena.shopping.product.model.Product_Other;
+import com.yena.shopping.product.product_imgs.bo.Product_imgsBO;
+import com.yena.shopping.product.product_imgs.model.Product_imgs;
 
 @Service
 public class ProductBO {
@@ -21,6 +23,8 @@ public class ProductBO {
 	@Autowired
 	private CategoryBO categoryBO; // category 테이블 정보를 가져오기 위해서
 
+	@Autowired
+	private Product_imgsBO product_imgsBO;
 	
 	public List<Product> showProduct(){
 		return productDAO.selectProductInfo();
@@ -41,12 +45,23 @@ public class ProductBO {
 			product_other.setId(product.getId());
 			product_other.setTitle(product.getTitle());
 			product_other.setPrice(product.getPrice());
+			product_other.setCategoryId(product.getCategoryId());
 			
 			//product 테이블의 categoryId와 category의 id를 대조해서
 			//category 테이블의 정보를 가져옴
 			Category category = categoryBO.getCategoryById(product.getCategoryId());
 			product_other.setType(category.getType());
+		
 			
+			//product_imgs 테이블에 대한 정보
+			Product_imgs product_imgs = product_imgsBO.sendProductImgsInfo(product.getId());
+			
+			if(product_imgs == null) {
+				System.out.println("productId가 " + product.getId() + "일 때 null");
+			}else {
+				product_other.setProduct_img(product_imgs.getProduct_img());
+
+			}
 			
 			product_OtherList.add(product_other);
 		}
@@ -75,6 +90,7 @@ public class ProductBO {
 	public Product getProduct(int id) {
 		return productDAO.readProduct(id);
 	}
+	
 	
 	
 	

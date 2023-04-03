@@ -23,20 +23,28 @@
 			<div class="content" id="content2">
 				<div class="nav_category">
 					<ul class="categorys">
+						
 						<c:forEach var="category" items="${categoryList }">
 							<li><a href="#">${category.type }</a></li>
 						</c:forEach>
+				
 					</ul>
 				</div>
 			
 				<div class="item_list" id="item_list2">
+					
 					<c:forEach var="product" items="${product_OtherList }">
 						<a href="/product_detail/detail/view?id=${product.id }">
 							<div class="show_items" id="show_items2" data-product-id="${product.id }">
+								<div class="productImg">
+									<img src="${product.product_img }" />
+								</div>
+								
 								<c:set var="productId" value="${product.id }" />
 								<p>${product.title }</p>
 								<p>${product.price }</p>
 								<p>${product.type }</p>
+								<h3>${product.categoryId }</h3>
 							</div>
 						</a> 
 					</c:forEach>

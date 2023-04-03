@@ -193,7 +193,7 @@
 							contentType:false,
 							success:function(res){
 								if(res.result){
-									location.href="/review/view";
+									alert("리뷰 작성 성공");
 								}else{
 									alert("review_img insert fail");
 								}

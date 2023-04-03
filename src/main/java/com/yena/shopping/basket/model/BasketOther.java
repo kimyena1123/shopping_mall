@@ -19,7 +19,9 @@ public class BasketOther {
 	private String product_price;
 	
 	//product_imgs 테이블의 정보
-	private String product_imgs_img;
+	private String productImgs_img;
+	
+	
 
 	public int getId() {
 		return id;
@@ -101,13 +103,13 @@ public class BasketOther {
 		this.product_price = product_price;
 	}
 
-	public String getProduct_imgs_img() {
-		return product_imgs_img;
+	public String getProductImgs_img() {
+		return productImgs_img;
 	}
 
-	public void setProduct_imgs_img(String product_imgs_img) {
-		this.product_imgs_img = product_imgs_img;
+	public void setProductImgs_img(String productImgs_img) {
+		this.productImgs_img = productImgs_img;
 	}
-	
+
 	
 }

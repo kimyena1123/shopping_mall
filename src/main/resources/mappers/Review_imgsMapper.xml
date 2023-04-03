@@ -57,4 +57,18 @@
 		)
 	</insert>
 
+	<select id="oneImgs"
+			resultType="com.yena.shopping.product.review.review_imgs.model.Review_imgs">
+		SELECT
+			`id`
+			,`reviewId`
+			,`review_img`
+			,`createdAt`
+			,`updatedAt`
+		FROM
+			`review_imgs`
+		WHERE
+			`reviewId` = #{reviewId}
+		LIMIT 1
+	</select>
 </mapper>

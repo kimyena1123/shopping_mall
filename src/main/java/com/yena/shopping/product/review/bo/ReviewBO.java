@@ -38,7 +38,7 @@ public class ReviewBO {
 	//어떤 유저가 올린 리뷰에 여러 정보 보여주기
 	public List<ReviewOther> getReviewInfo(int productId){
 		
-		List<Review> reviewList = reviewDAO.selectAllReview();
+		List<Review> reviewList = reviewDAO.selectAllReview(productId);
 		
 		List<ReviewOther> reviewOtherList = new ArrayList<>();
 		
@@ -47,33 +47,32 @@ public class ReviewBO {
 			
 			reviewOther.setId(review.getId());
 			reviewOther.setUserId(review.getUserId());
+			reviewOther.setProductId(review.getProductId());
 			reviewOther.setComment(review.getComment());
 			reviewOther.setCreatedAt(review.getCreatedAt());
-			
-			//review 테이블의 userId와 user테이블의 id를 대조해서
-			//그 해당 id(user 테이블의 id)의 행(정보)를 가져옴
+		
+			//user 테이블에 대한 정보
 			User user = userBO.sendUserInfoById(review.getUserId());
 			reviewOther.setUser_name(user.getUser_name());
-			reviewOther.setUser_id(user.getUser_id());
 			
-			//product 테이블 정보 가져오기
-			//product테이블의 id와 매개변수로 받은 productId가 같아야 함
-			//같은 해당 행의 정보 가져오기
+			//product 테이블에 대한 정보
 			Product product = productBO.getProduct(productId);
-			reviewOther.setProduct_index(productId);
 			reviewOther.setProduct_title(product.getTitle());
 			reviewOther.setProduct_price(product.getPrice());
 			
-			//product_detail 테이블 정보 가져오기
-			Product_detail product_detail = product_detailBO.getProduct(productId);
-			reviewOther.setProduct_detail_color(product_detail.getColor());
-			reviewOther.setProduct_detail_size(product_detail.getSize());
-			reviewOther.setProduct_detail_desc(product_detail.getDesc());
-			
-			//review_imgs 테이블 정보 가져오기
-			//review 테이블의 id와 review_imgs 테이블의 reviewId를 대조
+			//review_imgs 테이블에 대한 정보
 			List<Review_imgs> reviewImgList = review_imgsBO.sendReview_imgs(review.getId());
 			reviewOther.setReview_imgsList(reviewImgList);
+			
+			Review_imgs review_imgs = review_imgsBO.oneReviewImg(review.getId());
+			//reviewOther.setReviewImgs_img(review_imgs.getReview_img());
+			
+			if(review_imgs == null) {
+				System.out.println("reviewId가 >>" + review.getId());
+			}else {
+				reviewOther.setReviewImgs_img(review_imgs.getReview_img());
+				System.out.println("reviewId가 >> " + review.getId() + "일 때 >> " + review_imgs.getReview_img());
+			}
 			
 			reviewOtherList.add(reviewOther);
 			
@@ -89,5 +88,31 @@ public class ReviewBO {
 	//productId로 해당 review테이블의 id를 가져오기(가장 마지막 행)
 	public Review getReviewId(int productId) {
 		return reviewDAO.getReviewId(productId);
+	}
+	
+	//review detail page
+	public ReviewOther sendReviewOtherInfo(int reviewId) {
+		Review review = reviewDAO.sendReviewInfo(reviewId);
+		ReviewOther reviewOther = new ReviewOther();
+		
+		reviewOther.setId(review.getId());
+		reviewOther.setUserId(review.getUserId());
+		reviewOther.setProductId(review.getProductId());
+		reviewOther.setComment(review.getComment());
+		reviewOther.setCreatedAt(review.getCreatedAt());
+		
+		//user 테이블에 대한 정보
+		User user = userBO.sendUserInfoById(review.getUserId());
+		reviewOther.setUser_name(user.getUser_name());
+		
+		//product 테이블에 대한 정보
+		Product product = productBO.getProduct(review.getProductId());
+		reviewOther.setProduct_title(product.getTitle());
+		
+		//review_imgs 테이블에 대한 정보
+		List<Review_imgs> imgList = review_imgsBO.sendReview_imgs(reviewId);
+		reviewOther.setReview_imgsList(imgList);
+		
+		return reviewOther;
 	}
 }

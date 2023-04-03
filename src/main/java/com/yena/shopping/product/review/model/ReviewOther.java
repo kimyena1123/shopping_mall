@@ -30,7 +30,7 @@ public class ReviewOther {
 	
 	//review_imgs 테이블에 대한 정보
 	private List<Review_imgs> review_imgsList;
-	
+	private String reviewImgs_img;
 	
 	//getters and setters
 	
@@ -154,6 +154,15 @@ public class ReviewOther {
 	public void setReview_imgsList(List<Review_imgs> review_imgsList) {
 		this.review_imgsList = review_imgsList;
 	}
+
+	public String getReviewImgs_img() {
+		return reviewImgs_img;
+	}
+
+	public void setReviewImgs_img(String reviewImgs_img) {
+		this.reviewImgs_img = reviewImgs_img;
+	}
+
 	
 	
 }

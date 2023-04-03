@@ -20,4 +20,6 @@ public interface Review_imgsDAO {
 			,@Param("imagePath2") String imagePath2
 			,@Param("imagePath3") String imagePath3
 			,@Param("imagePath4") String imagePath4);
+	
+	public Review_imgs oneImgs(@Param("reviewId") int reviewId);
 }

@@ -51,7 +51,7 @@ section .basketList{
 .productShow{
 	border: 2px solid black;
 	width: 80%;
-	height: 280px;
+	height: 220px;
 	margin: 20px;
 	margin-top: 30px;
 	display: flex;
@@ -61,6 +61,10 @@ section .basketList{
 	height: 100%;
 	border-right: 1px solid black;
 }
+.productImg img{
+	width: 100%;
+	height: 100%;
+} 
 .productShow .ItemInfo{
 	width: 60%;
 	height: 100%;
@@ -79,6 +83,7 @@ section .basketList{
 	align-items: center;
 	padding-top: 10px;
 }
+
 section .orderDiv{
 	width: 30%;
 	height: 100%;

@@ -37,4 +37,8 @@ public class Review_imgsBO {
 		
 		return review_imgsDAO.insertReview_imgs(review_id, imagePath1, imagePath2, imagePath3, imagePath4);
 	}
+	
+	public Review_imgs oneReviewImg(int reviewId) {
+		return review_imgsDAO.oneImgs(reviewId);
+	}
 }

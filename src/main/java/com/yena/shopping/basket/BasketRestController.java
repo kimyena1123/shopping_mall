@@ -63,4 +63,25 @@ public class BasketRestController {
 		
 		return result;
 	}
+	
+	//장바구니 삭제
+	@PostMapping("/delete")
+	public Map<String, Boolean> basketDelete(
+			HttpSession session
+			,@RequestParam("basketId") int basketId) {
+		
+		int userId = (Integer)session.getAttribute("session_index");
+		
+		int count = basketBO.basketDelete(userId, basketId);
+		
+		Map<String, Boolean> result = new HashMap<>();
+				
+		if(count == 1) {
+			result.put("result", true);
+		}else {
+			result.put("result", false);
+		}
+		
+		return result;
+	}
 }

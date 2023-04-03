@@ -26,4 +26,10 @@ public interface BasketDAO {
 	
 	//위에 함수가 총 몇 개인지
 	public int selectCountList(@Param("userId") int userId);
+	
+	public List<Basket> sendBasketInfo(@Param("userId") int userId);
+	
+	//장바구니 삭제
+	public int basketDelete(@Param("basketId") int basketId
+							,@Param("userId") int userId);
 }

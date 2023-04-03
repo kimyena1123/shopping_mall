@@ -16,7 +16,32 @@ public class Product_Other {
 	//category 테이블 정보
 	private String type;
 	
+	//product 테이블 정보
+	private int productId;
+	
+	
+	//product_imgs 테이블 정보
+	private String product_img;
+	
+	
+	
 	//getters and setters
+	public int getProductId() {
+		return productId;
+	}
+	
+	
+	public void setProductId(int productId) {
+		this.productId = productId;
+	}
+	public String getProduct_img() {
+		return product_img;
+	}
+
+
+	public void setProduct_img(String product_img) {
+		this.product_img = product_img;
+	}
 
 
 	public int getId() {

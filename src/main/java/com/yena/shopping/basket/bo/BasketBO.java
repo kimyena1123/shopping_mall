@@ -70,6 +70,8 @@ public class BasketBO {
 			
 			//product_imgs 테이블에 관한 정보
 			Product_imgs product_imgs = product_imgsBO.sendProductImgsInfo(basket.getProductId());
+			basketOther.setProductImgs_img(product_imgs.getProduct_img());
+			System.out.println("id로 가져온 imgs 경로 보기 : " + product_imgs.getProduct_img());
 			
 			basketOtherList.add(basketOther);
 		}
@@ -80,8 +82,14 @@ public class BasketBO {
 		return basketDAO.selectCountList(userId);
 	}
 	
+	public List<Basket> sendBasketInfo(int userId){
+		return basketDAO.sendBasketInfo(userId);
+	}
 	
-	
+	//장바구니 삭제
+	public int basketDelete(int userId, int basketId) {
+		return basketDAO.basketDelete(basketId, userId);
+	}
 	
 	
 	

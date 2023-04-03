@@ -51,4 +51,21 @@ public class ReviewController {
 		
 		return "review/writeReview";
 	}
+	
+	//review detail view
+	@GetMapping("/detail/view")
+	public String reviewDetailView(
+			@RequestParam("reviewId") int reviewId
+			,@RequestParam("productId") int productId
+			,Model model) {
+		
+		ReviewOther reviewOther = reviewBO.sendReviewOtherInfo(reviewId);
+		model.addAttribute("reviewOther", reviewOther);
+		
+		Product_detail_Other productInfos = product_detailBO.showImgs(productId);
+		model.addAttribute("productInfos",productInfos);
+		
+		
+		return "review/detailPage";
+	}
 }

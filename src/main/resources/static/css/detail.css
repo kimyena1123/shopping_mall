@@ -153,13 +153,26 @@ section .showReview .imgReview{
 	padding-top: 25px;
 }
 .reviweDivs{
-	border: 5px solid black;
-	height: 360px;
+	border: 2px solid black;
+	height: 330px;
 	margin: 10px 10px;
 }
-
+.reviweDivs p{
+	margin-left: 15px;
+	margin-top: 15px;
+}
+.reviweDivs .reviewTitleImg{
+	margin: 0 auto;
+	margin-top: 13px;
+	width: 80%;
+	height: 150px;
+	border: 1px solid red;
+}
+.reviweDivs .reviewTitleImg img{
+	width: 100%;
+	height: 100%;
+}
 .imgReview a{
-	border: 3px solid red;
 	width: 30%;
 	margin: 10px;
 }
@@ -208,4 +221,42 @@ section .reviewImgs{
 .exampleImg img{
 	width: 100%;
 	height: 100%;
+}
+/*####################*/
+
+.showReviewImgs{
+	width: 80%;
+	height: 30%;
+	border: 1px solid black;
+	margin: 0 auto;
+	margin-top: 70px;
+	overflow-x: scroll;
+	padding-left: 50px;
+}
+.showReviewImgs img{
+	width: 250px;
+	height: 90%;
+	margin: 0 20px;
+	margin-top: 11px;
+	display: inline;
+}
+.reviewExplain{
+	width: 80%;
+	height: 40%;
+	border: 1px solid black;
+	margin: 0 auto;
+	margin-top: 60px;
+	padding-top: 20px;
+}
+.reviewExplain p{
+	font-size: 20px;
+	margin: 20px 0;
+	margin-left: 40px;
+}
+.reviewExplain .commentContent{
+	width: 80%;
+	height: 80px;
+	border: 1px solid black;
+	margin: 20px 0;
+	margin-left: 40px;
 }

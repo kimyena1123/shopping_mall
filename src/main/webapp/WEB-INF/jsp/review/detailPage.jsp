@@ -21,43 +21,27 @@
 		
 		<section>
 			<div class="showReview">
-				<div class="wirteReview">
-					<c:set var="productId" value="${productInfos.productId }"/>
-					<a href="/review/write/view?productId=<c:out value='${productId}'/>"><div class="writeDiv">글쓰기</div></a>
+				<div class="showReviewImgs">
+					<c:forEach var="reviewImgView" items="${reviewOther.review_imgsList }" varStatus="status">
+					
+						<img src="${reviewImgView.review_img }" class="reviewImgs">
+					
+					</c:forEach>
 				</div>
 				
-				<div class="imgReview">
-					<div class="reviews">
-						
-						<div class="selectReview">
-						
-						<c:forEach var="review" items="${reviewList }">
-						
-						<a href="/review/detail/view?reviewId=${review.id }&productId=${productInfos.productId }" id="aTag">
-						
-							<div class="reviweDivs">
-								<p>작성자 : ${review.user_name }</p>
-								<!--<p>상품 이름 : ${review.product_title }</p>
-								<p>상품 id : ${review.productId } </p>
-								<p>리뷰 id : ${review.id }</p> -->
-								<p>리뷰: ${review.comment }</p>
-								<p>리뷰 작성 시간: ${review.createdAt }</p>
-								
-								<div class="reviewTitleImg">
-									<img src="${review.reviewImgs_img }">
-								</div>
-							</div>
-							
-						</a>
-						</c:forEach>
-						
-						</div>
+				<div class="reviewExplain">
+					<p>사용자 : ${reviewOther.user_name } </p>
+					<p>상품 이름: ${reviewOther.product_title }</p>
+					<p>작성 시간: ${reviewOther.createdAt }</p>
+					<p>리뷰: </p>
+					<div class="commentContent">
+						${reviewOther.comment }
 					</div>
+					
 				</div>
 			</div>
-			
-			
-			
+		
+		
 			<div class="productInfo">
 				<div class="titleInfo">
 					<p class="titleName">${productInfos.title }</p>
@@ -89,7 +73,6 @@
 			</div>
 		</section>
 	</div>
-	
 	
 	<script>
 	$(document).ready(function(){
@@ -157,10 +140,9 @@
 				}
 			})
 		})
-		
-		
-		
 	})
 </script>
 </body>
+
+
 </html>

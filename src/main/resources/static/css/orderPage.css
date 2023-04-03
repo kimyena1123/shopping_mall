@@ -1,0 +1,122 @@
+@charset "UTF-8";
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.container{
+	width: 100vw;
+	height: 100vh;
+}
+
+section{
+	display: flex;
+	justify-content: center;
+	overflow-y: scroll;
+	padding: 100px 0;
+}
+
+section .orderDiv{
+	width: 50%;
+	height: 900px;
+	border: 1px solid black;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.orderDiv .buyItemList{
+	width: 90%;
+	height: 300px;
+	border: 1px solid black;
+	margin: 30px auto;
+	overflow-y: scroll;	
+	padding-top: 10px;
+
+}
+
+.selectItemList{
+	border: 1px solid black;
+	width: 95%;
+	height: 40%;
+	margin: 20px auto;
+	display: flex;
+}
+.smallImg{
+	width: 20%;
+	height: 98%;
+	border: 1px solid black;
+	margin-left: 10px;
+}
+
+.checkItem{
+	width: 78%;
+	height: 98%;
+}
+.checkItem p{
+	margin: 10px;
+}
+
+.orderDiv .checkItemCount{
+	width: 100%;
+	display: flex;
+	justify-content: end;
+	padding-right: 50px;
+	height: 50px;
+	margin-bottom: 10px;
+}
+.checkItemCount p{
+	margin: 0 5px;
+	font-size: 20px;
+}
+.checkItemCount p span{
+	font-weight: bold;
+}
+.orderDiv .userInfos{
+	width: 90%;
+	height: 400px;
+	display: flex;
+}
+.labels{
+	display: flex;
+	flex-direction: column;
+	width: 15%;
+}
+
+.inputs{
+	display: flex;
+	flex-direction: column;
+	width: 85%;
+}
+
+input, select{
+	padding: 0;
+	margin: 0;	
+}
+select{
+	padding: 8px;
+}
+.inputTag{
+	width: 600px;
+	margin: 27px 10px;
+}
+.btn{
+	display: flex;
+	width: 90%;
+	margin: 0 auto;
+	height: 50px;
+	justify-content: end;
+}
+#before{
+	margin-right: 20px;
+}
+button{
+	width: 200px;
+}
+#pay{
+	background-color: black;
+	color: white;
+	font-weight: bold;
+}
